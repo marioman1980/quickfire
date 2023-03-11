@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import "./utils/base.css";  commented out here as it was creating issue with icons if pulled prior to global files*/
+/* @import "./utils/chopping-block.css"; */
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+*,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+html {
+    font-family: sans-serif;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    text-size-adjust: 100%;
+  }
+body {
+    margin: 0;
+  }
+[hidden] {
+    display: none;
+  }
+blockquote:first-child,
+  ul:first-child,
+  ol:first-child,
+  p:first-child,
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0 !important;
+  }
+blockquote:last-child,
+  ul:last-child,
+  ol:last-child,
+  p:last-child,
+  h1:last-child,
+  h2:last-child,
+  h3:last-child,
+  h4:last-child,
+  h5:last-child,
+  h6:last-child {
+    margin-bottom: 0 !important;
+  }
+a {
+    color: inherit;
+    text-decoration: none;
+  }
+button,
+  input,
+  select,
+  textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    text-align: inherit;
+  }
+button,
+  [type="submit"] {
+    padding: 0;
+    overflow: visible;
+    background: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    appearance: none;
+    touch-action: manipulation;
+  }
+button[disabled],
+  html input[disabled] {
+    cursor: default;
+  }
+img,
+  video {
+    height: auto;
+    max-width: 100%;
+    border-style: none;
+    vertical-align: top;
+  }
+/* By default Firefox show the alt tag of image while image is loading, which is often not desirable */
+img:-moz-loading {
+    visibility: hidden;
+  }
+iframe {
+    border: 0;
+  }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+td,
+  th {
+    padding: 0;
+  }
+html {
+  background-color: red !important;
+}
+/* @import-glob './templates/*.css'; */
+/* @import-glob './sections/*.css'; */
+/* Global ? WIP */
+/* @import "./sections/section-checkout.css"; */
+/* @import "./sections/section-customer.css"; */
+/* Jamie TESTING - if style is missing uncomment to find which file needs included*/
+/* @import "./sections/section-announcement-bar.css";
+@import "./sections/section-blog-post-banner.css";
+
+@import "./sections/section-collection-banner.css";
+@import "./sections/section-collection-list.css";
+
+@import "./sections/section-contact-form.css";
+
+@import "./sections/section-footer.css";
+@import "./sections/section-gallery.css";
+@import "./sections/section-main-gift-card.css";
+
+@import "./sections/section-header.css";
+@import "./sections/section-image-with-text-block.css";
+@import "./sections/section-image-with-text.css";
+@import "./sections/section-logo-list.css";
+@import "./sections/section-main-article.css";
+
+@import "./sections/section-main-cart.css";
+@import "./sections/section-main-search.css";
+@import "./sections/section-mini-cart.css";
+@import "./sections/section-multi-column.css";
+@import "./sections/section-newsletter.css";
+
+@import "./sections/section-press.css";
+@import "./sections/section-product-content.css";
+@import "./sections/section-promotion-blocks.css";
+@import "./sections/section-shop-the-look.css";
+
+@import "./sections/section-slideshow.css";
+
+@import "./sections/section-store-availability.css";
+@import "./sections/section-testimonials.css";
+@import "./sections/section-text-with-icons.css";
+@import "./sections/section-timeline.css";
+@import "./sections/section-video.css"; */
