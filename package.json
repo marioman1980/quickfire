@@ -32,7 +32,8 @@
     "package": "npm-run-all --sequential package:*",
     "package:build": "npm-run-all --sequential build:*",
     "package:shopify": "shopify theme package",
-    "package:copy": "mkdir -p build && cpy './*.zip' build"
+    "package:copy": "mkdir -p build && cpy './*.zip' build",
+    "sass": "node-sass -w src/styles -o ./assets --output-style compressed"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -71,7 +72,10 @@
   },
   "dependencies": {
     "canvas-confetti": "^1.4.0",
+    "node-sass": "^8.0.0",
     "parallel": "^1.2.0",
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^4.0.0"
   }
 }
