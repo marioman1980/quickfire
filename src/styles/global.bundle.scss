@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	text-transform: uppercase;
+}
+
+.nav-right {
+	display: flex;
+	justify-content: space-between;
+	gap: 8rem;
+
+	nav ul {
+		display: flex;
+		justify-content: space-between;
+		gap: 8rem;
+	}
+
+	.header__icons {
+		display: flex;
+		justify-content: space-between;
+		gap: 4rem;
+	}
+}
+
+.header__icon--cart,
+.header__icon--account {
+	width: 26px;
+}
