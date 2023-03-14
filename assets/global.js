@@ -1012,6 +1012,24 @@ class VariantRadios extends VariantSelects {
 
 customElements.define('variant-radios', VariantRadios);
 
+class VariantMixed extends VariantSelects {
+  constructor() {
+    super();
+  }
+
+  updateOptions() {
+    let select_options = Array.from(this.querySelectorAll('select'), (select) => select.value);
+    const fieldsets = Array.from(this.querySelectorAll('fieldset'));
+    let radio_options = fieldsets.map((fieldset) => {
+      return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value;
+    });
+    this.options = radio_options.concat(select_options);
+    console.log(this.options);
+  }
+}
+
+customElements.define('variant-mixed', VariantMixed);
+
 class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
