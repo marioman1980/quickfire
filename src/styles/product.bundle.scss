@@ -111,4 +111,22 @@ header.page-width {
     }    
   }
 
+  #SizeGuideBtn {
+    color: black;
+    font-size: 1.4rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }  
+
+  .product-form__submit {
+    border-radius: 10px;
+    font-weight: bold;
+
+    &:before, &:after {
+      box-shadow: unset;
+    }
+  }
+
 }

@@ -30,7 +30,7 @@
         "1bbb97fd-c06b-4efa-b274-55d5ebc1f629": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<a id=\"SizeGuide\" href=\"#\">Size Guide<\/a>"
+            "custom_liquid": "<a id=\"SizeGuideBtn\" href=\"#\">Size Guide<\/a>"
           }
         },
         "quantity_selector": {
