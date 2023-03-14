@@ -8,3 +8,58 @@ header *,
 header.page-width {
   max-width: 1600px;
 }
+
+.product {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .price-item--sale {
+    font-size: 3.6rem;
+    font-weight: bold;
+  }
+
+  .price-item--price {
+    vertical-align: top;
+
+    .price-item--regular {
+      color: #C9C9C9;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .product--large:not(.product--no-media) .product__media-wrapper {
+    max-width: 50%;
+  }
+  .product--large:not(.product--no-media) .product__info-wrapper {
+    max-width: unset;
+    width: unset;
+  }
+}
+
+.product__media-icon {
+  top: unset;
+  left: unset;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  opacity: 0.5 !important;
+  height: 5rem;
+  width: 5rem;
+}
+
+.product__modal-opener:hover {
+  .product__media-icon {
+    opacity: 0.8 !important;
+  }
+}
+
+.thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+  width: calc(25% - 0.8rem);
+
+  .thumbnail {
+    border-radius: 10px;
+  }
+}
+
