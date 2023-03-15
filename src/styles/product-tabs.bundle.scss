@@ -1,0 +1,21 @@
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid white;
+}
+
+.tabs-content {
+
+	.tab-content {
+
+		&.tab-content--active {
+			display: block;
+		}
+
+		&.tab-content--hidden {
+			display: none;
+		}
+
+	}
+
+}

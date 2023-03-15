@@ -1,4 +1,51 @@
-FOO
+{{ 'product-tabs.bundle.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }}">
+  <div class="product-tabs page-width">
+    <h1>{{ product.title }}</h1>
+    <div class="tabs">
+      {%- for block in section.blocks -%}
+        {%- if block.type contains 'tab_' -%}
+          <div id="tab--{{ block.type }}" class="tab">
+            {{ block.settings.tab_title }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="tabs-content">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'tab_description' -%}
+            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--active">
+              {{ product.description }}
+            </div>
+          {%- when 'tab_size_guide' -%}
+            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+              Size Guide
+            </div>
+          {%- when 'tab_delivery_returns' -%}
+            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+              Delivery & Returns
+            </div>
+          {%- when 'tab_reviews' -%}
+            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+              Reviews
+            </div>                                    
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  let tabs = document.querySelectorAll('.tab');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      console.log(tab.id);
+    })
+  });
+</script>
 
 {% schema %}
 {
@@ -6,8 +53,90 @@ FOO
   "tag": "section",
   "class": "section",
   "settings": [
-
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info"
+    }
   ],
+  "blocks": [
+    {
+      "type": "tab_description",
+      "name": "Tab Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Product Description"
+        }
+      ]
+    },
+    {
+      "type": "tab_size_guide",
+      "name": "Tab Size Guide",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Size Guide"
+        }
+      ]
+    },
+    {
+      "type": "tab_delivery_returns",
+      "name": "Tab Delivery & Returns",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Delivery & Returns"
+        }
+      ]
+    },
+    {
+      "type": "tab_reviews",
+      "name": "Tab Reviews",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Reviews"
+        }
+      ]
+    }            
+  ],  
   "presets": [
     {
       "name": "Product Tabs"
