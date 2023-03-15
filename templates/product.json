@@ -84,6 +84,11 @@
         "padding_bottom": 12
       }
     },
+    "4472bbd4-0787-4c57-8b71-20f38c8bccb5": {
+      "type": "product-tabs",
+      "settings": {
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -104,6 +109,7 @@
   },
   "order": [
     "main",
+    "4472bbd4-0787-4c57-8b71-20f38c8bccb5",
     "related-products"
   ]
 }
