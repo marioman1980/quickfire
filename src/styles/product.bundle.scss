@@ -1,8 +1,8 @@
 @import url(//db.onlinewebfonts.com/c/1dc8ecd8056a5ea7aa7de1db42b5b639?family=Gilroy);  
 
-header *,
-.product * {
-  font-family: Gilroy;
+html *,
+body * {
+  font-family: Gilroy !important;
 }
 
 header.page-width {
