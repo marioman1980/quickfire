@@ -86,7 +86,40 @@
     },
     "4472bbd4-0787-4c57-8b71-20f38c8bccb5": {
       "type": "product-tabs",
+      "blocks": {
+        "6dd2d175-4f03-4e90-8a1e-723120369b58": {
+          "type": "tab_description",
+          "settings": {
+            "tab_title": "Product Description"
+          }
+        },
+        "5d06a0bd-4743-457d-8e93-5992b2bda5e4": {
+          "type": "tab_size_guide",
+          "settings": {
+            "tab_title": "Size Guide"
+          }
+        },
+        "7cd077d3-984f-40e6-8190-8f236900dd58": {
+          "type": "tab_delivery_returns",
+          "settings": {
+            "tab_title": "Delivery & Returns"
+          }
+        },
+        "53da7ad6-fdb0-4a60-a211-a04c6515d194": {
+          "type": "tab_reviews",
+          "settings": {
+            "tab_title": "Reviews"
+          }
+        }
+      },
+      "block_order": [
+        "6dd2d175-4f03-4e90-8a1e-723120369b58",
+        "5d06a0bd-4743-457d-8e93-5992b2bda5e4",
+        "7cd077d3-984f-40e6-8190-8f236900dd58",
+        "53da7ad6-fdb0-4a60-a211-a04c6515d194"
+      ],
       "settings": {
+        "color_scheme": "background-2"
       }
     },
     "related-products": {
