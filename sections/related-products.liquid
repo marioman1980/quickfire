@@ -65,31 +65,54 @@
 <script>
   window.addEventListener("load", (event) => {
 
-    const swiper = new Swiper('.swiper', {
-      slidesPerView: 4,
-      spaceBetween: 8,
+    waitForElement('.swiper').then((elm) => {
+      const swiper = new Swiper('.swiper', {
+        slidesPerView: 4,
+        spaceBetween: 8,
 
-      breakpoints: {
-        320: {
-          slidesPerView: 1
+        breakpoints: {
+          320: {
+            slidesPerView: 1
+          },
+          480: {
+            slidesPerView: 2
+          },
+          640: {
+            slidesPerView: 3
+          },
+          769: {
+            slidesPerView: 4
+          }    
         },
-        480: {
-          slidesPerView: 2
-        },
-        640: {
-          slidesPerView: 3
-        },
-        769: {
-          slidesPerView: 4
-        }    
-      },
 
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-next',
-        prevEl: '.swiper-prev',
-      }
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-next',
+          prevEl: '.swiper-prev',
+        }
+      });
     });
+
+    function waitForElement(selector) {
+      return new Promise(resolve => {
+        if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(mutations => {
+          if (document.querySelector(selector)) {
+            resolve(document.querySelector(selector));
+            observer.disconnect();
+          }
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+      });
+    } 
+
   });
 
 </script>
