@@ -24,12 +24,16 @@
 .tabs-content {
 
 	.tab-content {
+		padding: 8rem;
 
 		.size-guide {
 			display: flex;
+			justify-content: space-around;
+			align-items: center;
 
 			.dimension {
 				display: flex;
+				gap: 2.5rem;
 
 				span.value {
 					align-self: center;
