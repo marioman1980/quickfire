@@ -81,7 +81,8 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "countdown_cutoff_time": "17:00"
       }
     },
     "36a7221a-4de9-401e-b92a-52b98e45939e": {
@@ -91,14 +92,14 @@
           "type": "tab_description",
           "settings": {
             "tab_title": "Product Description",
-            "default": true
+            "default": false
           }
         },
         "fd832ac5-a281-430d-bcf0-19dac6689ed0": {
           "type": "tab_size_guide",
           "settings": {
             "tab_title": "Size Guide",
-            "default": false
+            "default": true
           }
         },
         "899baa2c-6be7-4c33-938d-ce2eaf37d20c": {
