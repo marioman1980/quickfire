@@ -40,6 +40,19 @@ header.page-width {
   }
 }
 
+.product__media-wrapper {
+  position: relative;
+
+  .countdown-timer {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    background: #eeeeeedd;
+    line-height: 37px;
+  }
+}
+
 .product {
 
   .product__media-icon {

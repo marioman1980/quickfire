@@ -60,6 +60,7 @@
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+      <div class="countdown-timer">ORDER IN THE NEXT <span class="bold">00:00:00</span> FOR NEXT DAY DELIVERY</div>
       {% render 'product-media-gallery', variant_images: variant_images %}
     </div>
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
@@ -472,6 +473,30 @@
       </div>
     </modal-dialog>
   {%- endfor -%}
+
+  <script>
+    let dateToday = new Date();
+    let year = dateToday.getFullYear();
+    let month = dateToday.getMonth() + 1;
+    let day = dateToday.getDate();
+
+    let cutoffToday = new Date(`${month}/${day}/${year} {{ section.settings.countdown_cutoff_time }}`);
+
+    let x = setInterval(function() {
+
+      let now = new Date().getTime();
+
+      let difference = cutoffToday.getTime() - now;
+
+      let hours = `0${Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}`.slice(-2);
+      let minutes = `0${Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))}`.slice(-2);
+      let seconds = `0${Math.floor((difference % (1000 * 60)) / 1000)}`.slice(-2);
+
+      let countDownEl = document.querySelector('.countdown-timer span');
+      countDownEl.innerHTML = `${hours}:${minutes}:${seconds}`;
+    }, 1000);
+
+  </script>
 
   {%- if product.media.size > 0 -%}
     <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
@@ -2057,6 +2082,13 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "countdown_cutoff_time",
+      "label": "Countdown Cutoff Time",
+      "default": "17:00",
+      "info": "Must be of format hh:mm. Eg. 17:00"
     }
   ]
 }
