@@ -17,11 +17,11 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'tab_description' -%}
-            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--active">
+            <div id="tab-content--{{ block.type }}" class="tab-content {% if block.settings.default %}tab-content--active{% else %}tab-content--hidden{% endif %}">
               {{ product.description }}
             </div>
           {%- when 'tab_size_guide' -%}
-            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+            <div id="tab-content--{{ block.type }}" class="tab-content {% if block.settings.default %}tab-content--active{% else %}tab-content--hidden{% endif %}">
               <div class="size-guide">
                 <div class="dimensions">
                   {%- for item in product.metafields.custom.size_guide_dimensions.value -%}
@@ -43,11 +43,11 @@
               </div>
             </div>
           {%- when 'tab_delivery_returns' -%}
-            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+            <div id="tab-content--{{ block.type }}" class="tab-content {% if block.settings.default %}tab-content--active{% else %}tab-content--hidden{% endif %}">
               Delivery & Returns
             </div>
           {%- when 'tab_reviews' -%}
-            <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
+            <div id="tab-content--{{ block.type }}" class="tab-content {% if block.settings.default %}tab-content--active{% else %}tab-content--hidden{% endif %}">
               Reviews
             </div>                                    
         {%- endcase -%}
