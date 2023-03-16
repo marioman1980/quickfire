@@ -17,7 +17,7 @@
     {%- for option in product.options_with_values -%}
       {%- if option.name == 'Color' -%}
         <fieldset class="js product-form__input">
-          <legend class="form__label">{{ option.name }}: <span class="bold">Tan</span></legend>
+          <legend class="form__label">{{ option.name }}: <span id="LegendColor" class="bold"></span></legend>
           {%- for value in option.values -%}
             <input
               type="radio"
@@ -143,3 +143,18 @@
     </div>
   </div>
 </noscript>
+
+<script>
+  window.addEventListener("load", (event) => {
+    let legendColor = document.querySelector('#LegendColor');
+    console.log(legendColor.text);
+    legendColor.innerHTML = document.querySelector('input[name="Color"]:checked').value;
+
+    let colorRadios = document.querySelectorAll('input[name="Color"]');
+    colorRadios.forEach((radio) => {
+      radio.addEventListener('click', () => {
+        legendColor.innerHTML = radio.value;
+      });
+    });
+  });
+</script>
