@@ -2,12 +2,11 @@
 
 <div class="color-{{ section.settings.color_scheme }}">
   <div class="product-tabs page-width">
-    <h1>{{ product.title }}</h1>
     <div class="tabs">
       {%- for block in section.blocks -%}
         {%- if block.type contains 'tab_' -%}
-          <div id="tab--{{ block.type }}" class="tab">
-            {{ block.settings.tab_title }}
+          <div id="tab--{{ block.type }}" class="tab {% if block.settings.default %}tab--active{% else %}tab--inactive{% endif %}">
+              {{ block.settings.tab_title }}
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -21,7 +20,25 @@
             </div>
           {%- when 'tab_size_guide' -%}
             <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
-              Size Guide
+              <div class="size-guide">
+                <div class="dimensions">
+                  {%- for item in product.metafields.custom.size_guide_dimensions.value -%}
+                    {%- liquid
+                      assign item_split = item | split: ' | '
+                      assign letter = item_split[0]
+                      assign dimension = item_split[1]
+                      assign value = item_split[2]
+                    -%}
+                    <div class="dimension">
+                      {% render 'icon-letters', letter: letter %}
+                      <span class="value">{{ dimension }}: <span class="bold">{{ value }}</span></span>
+                    </div>
+                  {%- endfor -%}
+                </div>
+                <div class="size-guide-image">
+                  <img src="{{ product.metafields.custom.size_guide_image | image_url: width: 500 }}">
+                </div>
+              </div>
             </div>
           {%- when 'tab_delivery_returns' -%}
             <div id="tab-content--{{ block.type }}" class="tab-content tab-content--hidden">
@@ -42,7 +59,21 @@
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      console.log(tab.id);
+      let tabContentId = `tab-content--${tab.id.split('--')[1]}`;
+      let tabContent = document.querySelector(`#${tabContentId}`);
+      let currentTab = document.querySelector('.tab--active');
+      let currentTabContent = document.querySelector('.tab-content--active');
+
+      currentTab.classList.remove('tab--active');
+      currentTab.classList.add('tab--inactive');
+      tab.classList.remove('tab--inactive');
+      tab.classList.add('tab--active');
+
+      currentTabContent.classList.remove('tab-content--active');
+      currentTabContent.classList.add('tab-content--hidden');
+      tabContent.classList.remove('tab-content--hidden');
+      tabContent.classList.add('tab-content--active');      
+      
     })
   });
 </script>
@@ -94,6 +125,12 @@
           "id": "tab_title",
           "label": "Tab Title",
           "default": "Product Description"
+        },
+        {
+          "type": "checkbox",
+          "id": "default",
+          "label": "Default",
+          "default": true
         }
       ]
     },
@@ -107,6 +144,12 @@
           "id": "tab_title",
           "label": "Tab Title",
           "default": "Size Guide"
+        },
+        {
+          "type": "checkbox",
+          "id": "default",
+          "label": "Default",
+          "default": false
         }
       ]
     },
@@ -120,6 +163,12 @@
           "id": "tab_title",
           "label": "Tab Title",
           "default": "Delivery & Returns"
+        },
+        {
+          "type": "checkbox",
+          "id": "default",
+          "label": "Default",
+          "default": false
         }
       ]
     },
@@ -133,6 +182,12 @@
           "id": "tab_title",
           "label": "Tab Title",
           "default": "Reviews"
+        },
+        {
+          "type": "checkbox",
+          "id": "default",
+          "label": "Default",
+          "default": false
         }
       ]
     }            

@@ -2,11 +2,40 @@
 	display: flex;
 	justify-content: space-around;
 	border-bottom: 1px solid white;
+	height: 9rem;
+
+	.tab {
+		display: flex;
+    flex-direction: column;
+    justify-content: space-around;		
+
+		&.tab--active {
+			font-weight: bold;
+			border-bottom: 2px solid black;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+	}
 }
 
 .tabs-content {
 
 	.tab-content {
+
+		.size-guide {
+			display: flex;
+
+			.dimension {
+				display: flex;
+
+				span.value {
+					align-self: center;
+				}
+			}
+		}
 
 		&.tab-content--active {
 			display: block;
