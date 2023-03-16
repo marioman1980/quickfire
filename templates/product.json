@@ -81,7 +81,7 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 12
+        "padding_bottom": 100
       }
     },
     "36a7221a-4de9-401e-b92a-52b98e45939e": {
@@ -90,25 +90,29 @@
         "647cf45c-1351-4cbe-ad3e-7732d45ee46b": {
           "type": "tab_description",
           "settings": {
-            "tab_title": "Product Description"
+            "tab_title": "Product Description",
+            "default": true
           }
         },
         "fd832ac5-a281-430d-bcf0-19dac6689ed0": {
           "type": "tab_size_guide",
           "settings": {
-            "tab_title": "Size Guide"
+            "tab_title": "Size Guide",
+            "default": false
           }
         },
         "899baa2c-6be7-4c33-938d-ce2eaf37d20c": {
           "type": "tab_delivery_returns",
           "settings": {
-            "tab_title": "Delivery & Returns"
+            "tab_title": "Delivery & Returns",
+            "default": false
           }
         },
         "6302aa5b-a0ed-43f3-88d1-1191d20b67a8": {
           "type": "tab_reviews",
           "settings": {
-            "tab_title": "Reviews"
+            "tab_title": "Reviews",
+            "default": false
           }
         }
       },
