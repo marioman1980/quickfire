@@ -6,14 +6,10 @@
   media="print"
   onload="this.media='all'"
 >
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
+
 
 {{ 'related-products.bundle.css' | asset_url | stylesheet_tag }}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -47,7 +43,7 @@
       </div>   
       <div class="swiper">
         <ul
-          class="swiper-wrapper product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          class="swiper-wrapper product-grid "
           role="list"
         >
           {% for recommendation in recommendations.products %}
@@ -72,6 +68,21 @@
     const swiper = new Swiper('.swiper', {
       slidesPerView: 4,
       spaceBetween: 8,
+
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        480: {
+          slidesPerView: 2
+        },
+        640: {
+          slidesPerView: 3
+        },
+        769: {
+          slidesPerView: 4
+        }    
+      },
 
       // Navigation arrows
       navigation: {

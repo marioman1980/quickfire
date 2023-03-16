@@ -2,14 +2,16 @@
 
 <div class="color-{{ section.settings.color_scheme }}">
   <div class="product-tabs page-width">
-    <div class="tabs">
-      {%- for block in section.blocks -%}
-        {%- if block.type contains 'tab_' -%}
-          <div id="tab--{{ block.type }}" class="tab {% if block.settings.default %}tab--active{% else %}tab--inactive{% endif %}">
-              {{ block.settings.tab_title }}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+    <div class="swiper-tabs">
+      <div class="tabs swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- if block.type contains 'tab_' -%}
+            <div id="tab--{{ block.type }}" class="swiper-slide tab {% if block.settings.default %}tab--active{% else %}tab--inactive{% endif %}">
+                <span>{{ block.settings.tab_title }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
     </div>
     <div class="tabs-content">
       {%- for block in section.blocks -%}
@@ -75,6 +77,25 @@
       tabContent.classList.add('tab-content--active');      
       
     })
+  });
+
+  const mySwiper = new Swiper('.swiper-tabs', {
+    slidesPerView: 2,
+
+    breakpoints: {
+      320: {
+        slidesPerView: 2
+      },
+      480: {
+        slidesPerView: 2
+      },
+      640: {
+        slidesPerView: 3
+      },
+      770: {
+        slidesPerView: 4
+      }    
+    }
   });
 </script>
 
